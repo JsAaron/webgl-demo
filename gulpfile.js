@@ -35,7 +35,7 @@ var webServer = {
 
 //监控脚本变化
 gulp.task('watch', function() {
-    gulp.watch(watchJs['pixi-pack']);
+    gulp.watch(watchJs['pack']);
 })
 
 
@@ -46,14 +46,14 @@ gulp.task('web-server', function() {
 
 
 //pixi打包
-gulp.task('pixi-pack', function() {
+gulp.task('pack', function() {
     webpack({
         // watch  : true,
         entry: './src/index.js',
         output: {
             path: './pixi/',
             publicPath: './pixi/',
-            filename: 'bundle.js'
+            filename: 'pixi.js'
         },
         devtool: '#source-map',
         //加载器
@@ -91,4 +91,4 @@ gulp.task('pixi-pack', function() {
 })
 
 
-gulp.task('default', ['web-server'])
+gulp.task('default', ['web-server','pack'])

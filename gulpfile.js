@@ -29,13 +29,19 @@ var webServer = {
     port      : 3000,
     logLevel  : "debug",
     logPrefix : "Aaron",
-    open      : true
+    open      : false
 }
 
 
 //监控脚本变化
 gulp.task('watch', function() {
-    gulp.watch(watchJs['pack']);
+    //监控src改变
+    gulp.watch(watchJs, ['pack']);
+    //监控pixi改变
+    //刷新加载
+    gulp.watch(destRoot + "pixi.js").on('change', function(){
+         reload();
+    });
 })
 
 
@@ -51,8 +57,8 @@ gulp.task('pack', function() {
         // watch  : true,
         entry: './src/index.js',
         output: {
-            path: './pixi/',
-            publicPath: './pixi/',
+            path: './demo/',
+            publicPath: './demo/',
             filename: 'pixi.js'
         },
         devtool: '#source-map',
@@ -91,4 +97,4 @@ gulp.task('pack', function() {
 })
 
 
-gulp.task('default', ['web-server','pack'])
+gulp.task('default', ['web-server','pack','watch'])

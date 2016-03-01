@@ -11,7 +11,7 @@ var CONST = {
      * @constant
      * @property {string} VERSION
      */
-    VERSION: require('../../package.json').version,
+    VERSION: '1.0.0',
 
     /**
      * @property {number} PI_2 - Two Pi

@@ -22,7 +22,7 @@ $(document).ready(function() {
         App.loadPixi(url, onPixiLoaded);
     } else {
         console.log('Loading local pixi');
-        App.loadPixi('../../pixi/pixi.js', onPixiLoaded);
+        App.loadPixi('./pixi.js', onPixiLoaded);
     }
 
     function onTagsLoaded(select) {

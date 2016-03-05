@@ -1,4 +1,5 @@
 var renderer = PIXI.autoDetectRenderer(800, 600);
+
 document.body.appendChild(renderer.view);
 
 PIXI.loader
@@ -24,7 +25,7 @@ function onAssetsLoaded() {
 
     // create a MovieClip (brings back memories from the days of Flash, right ?)
     movie = new PIXI.extras.MovieClip(frames);
-
+ 
     /*
      * A MovieClip inherits all the properties of a PIXI sprite
      * so you can change its position, its anchor, mask it, etc

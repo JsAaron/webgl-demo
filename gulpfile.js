@@ -39,9 +39,14 @@ gulp.task('watch', function() {
     gulp.watch(watchJs, ['pack']);
     //监控pixi改变
     //刷新加载
-    gulp.watch(destRoot + "pixi.js").on('change', function(){
+    // gulp.watch(destRoot + "pixi.js").on('change', function(){
+    //      reload();
+    // });
+
+    gulp.watch(destRoot + "**/*.js").on('change', function(){
          reload();
     });
+
 })
 
 

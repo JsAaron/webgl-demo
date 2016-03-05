@@ -27,7 +27,6 @@ $(document).ready(function() {
 
     function onTagsLoaded(select) {
         console.log('tags loaded')
-        return;
             //  if a specific version was required
         if (params.v) {
             for (var i = 0; i < select.options.length; ++i) {
@@ -70,6 +69,7 @@ $(document).ready(function() {
     }
 
     function exampleCodeLoaded(url, code) {
+
         var textarea = document.getElementById('sourcecode');
 
         var title = document.querySelector('h1');

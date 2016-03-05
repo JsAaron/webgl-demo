@@ -10,7 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "async": "^1.5.2",
     "browser-sync": "^2.9.1",
+    "earcut": "^2.1.0",
+    "eventemitter3": "^1.1.1",
+    "fs": "0.0.2",
+    "resource-loader": "^1.6.4",
     "webpack": "^1.12.1"
   }
 }

@@ -26,4 +26,5 @@ Object.assign(core, require('./deprecation'));
 
 // Always export pixi globally.
 global.PIXI = core;
- 
+   
+   

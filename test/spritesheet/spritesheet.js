@@ -12,7 +12,9 @@ var stage = new PIXI.Container();
 
 var movie;
 
-function onAssetsLoaded() {
+function onAssetsLoaded(o,resources) {
+
+    console.log(resources)
 
     // create an array of textures from an image path
     var frames = [];

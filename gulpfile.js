@@ -37,6 +37,9 @@ var webServer = {
 gulp.task('watch', function() {
     //监控src改变
     gulp.watch(watchJs, ['pack']);
+
+    
+
     //监控pixi改变
     //刷新加载
     // gulp.watch(destRoot + "pixi.js").on('change', function(){

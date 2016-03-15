@@ -72,8 +72,8 @@
 	
 	// Always export pixi globally.
 	global.PIXI = core;
-	 
-	
+	   
+	   
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
@@ -1565,17 +1565,16 @@
 	    _uid: 0,
 	    _saidHello: false,
 	
-	    EventEmitter:   __webpack_require__(16),
-	    pluginTarget:   __webpack_require__(17),
-	    async:          __webpack_require__(18),
+	    EventEmitter: __webpack_require__(16),
+	    pluginTarget: __webpack_require__(17),
+	    async: __webpack_require__(18),
 	
 	    /**
 	     * Gets the next unique identifier
 	     *
 	     * @return {number} The next unique identifier to use.
 	     */
-	    uid: function ()
-	    {
+	    uid: function() {
 	        return ++utils._uid;
 	    },
 	
@@ -1586,8 +1585,7 @@
 	     * @param  {number[]} [out=[]]
 	     * @return {number[]} An array representing the [R, G, B] of the color.
 	     */
-	    hex2rgb: function (hex, out)
-	    {
+	    hex2rgb: function(hex, out) {
 	        out = out || [];
 	
 	        out[0] = (hex >> 16 & 0xFF) / 255;
@@ -1603,8 +1601,7 @@
 	     * @param hex {number}
 	     * @return {string} The string color.
 	     */
-	    hex2string: function (hex)
-	    {
+	    hex2string: function(hex) {
 	        hex = hex.toString(16);
 	        hex = '000000'.substr(0, 6 - hex.length) + hex;
 	
@@ -1617,9 +1614,8 @@
 	     * @param rgb {number[]}
 	     * @return {number} The color number
 	     */
-	    rgb2hex: function (rgb)
-	    {
-	        return ((rgb[0]*255 << 16) + (rgb[1]*255 << 8) + rgb[2]*255);
+	    rgb2hex: function(rgb) {
+	        return ((rgb[0] * 255 << 16) + (rgb[1] * 255 << 8) + rgb[2] * 255);
 	    },
 	
 	    /**
@@ -1627,10 +1623,8 @@
 	     *
 	     * @return {boolean} whether they are supported
 	     */
-	    canUseNewCanvasBlendModes: function ()
-	    {
-	        if (typeof document === 'undefined')
-	        {
+	    canUseNewCanvasBlendModes: function() {
+	        if (typeof document === 'undefined') {
 	            return false;
 	        }
 	
@@ -1652,7 +1646,7 @@
 	        context.drawImage(magenta, 0, 0);
 	        context.drawImage(yellow, 2, 0);
 	
-	        var data = context.getImageData(2,0,1,1).data;
+	        var data = context.getImageData(2, 0, 1, 1).data;
 	
 	        return (data[0] === 255 && data[1] === 0 && data[2] === 0);
 	    },
@@ -1664,19 +1658,14 @@
 	     * @param number {number}
 	     * @return {number} the closest number that is a power of two
 	     */
-	    getNextPowerOfTwo: function (number)
-	    {
+	    getNextPowerOfTwo: function(number) {
 	        // see: http://en.wikipedia.org/wiki/Power_of_two#Fast_algorithm_to_check_if_a_positive_number_is_a_power_of_two
-	        if (number > 0 && (number & (number - 1)) === 0)
-	        {
+	        if (number > 0 && (number & (number - 1)) === 0) {
 	            return number;
-	        }
-	        else
-	        {
+	        } else {
 	            var result = 1;
 	
-	            while (result < number)
-	            {
+	            while (result < number) {
 	                result <<= 1;
 	            }
 	
@@ -1691,8 +1680,7 @@
 	     * @param height {number}
 	     * @return {boolean}
 	     */
-	    isPowerOfTwo: function (width, height)
-	    {
+	    isPowerOfTwo: function(width, height) {
 	        return (width > 0 && (width & (width - 1)) === 0 && height > 0 && (height & (height - 1)) === 0);
 	    },
 	
@@ -1703,13 +1691,11 @@
 	     * @param url {string} the image path
 	     * @return {number}
 	     */
-	    getResolutionOfUrl: function (url)
-	    {
+	    getResolutionOfUrl: function(url) {
 	        var resolution = CONST.RETINA_PREFIX.exec(url);
 	
-	        if (resolution)
-	        {
-	           return parseFloat(resolution[1]);
+	        if (resolution) {
+	            return parseFloat(resolution[1]);
 	        }
 	
 	        return 1;
@@ -1725,15 +1711,12 @@
 	     * @constant
 	     * @static
 	     */
-	    sayHello: function (type)
-	    {
-	        if (utils._saidHello)
-	        {
+	    sayHello: function(type) {
+	        if (utils._saidHello) {
 	            return;
 	        }
 	
-	        if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1)
-	        {
+	        if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
 	            var args = [
 	                '\n %c %c %c Pixi.js ' + CONST.VERSION + ' - ✰ ' + type + ' ✰  %c ' + ' %c ' + ' http://www.pixijs.com/  %c %c ♥%c♥%c♥ \n\n',
 	                'background: #ff66a5; padding:5px 0;',
@@ -1748,9 +1731,7 @@
 	            ];
 	
 	            window.console.log.apply(console, args); //jshint ignore:line
-	        }
-	        else if (window.console)
-	        {
+	        } else if (window.console) {
 	            window.console.log('Pixi.js ' + CONST.VERSION + ' - ' + type + ' - http://www.pixijs.com/'); //jshint ignore:line
 	        }
 	
@@ -1762,13 +1743,10 @@
 	     *
 	     * @return {boolean}
 	     */
-	    isWebGLSupported: function ()
-	    {
+	    isWebGLSupported: function() {
 	        var contextOptions = { stencil: true };
-	        try
-	        {
-	            if (!window.WebGLRenderingContext)
-	            {
+	        try {
+	            if (!window.WebGLRenderingContext) {
 	                return false;
 	            }
 	
@@ -1776,9 +1754,7 @@
 	                gl = canvas.getContext('webgl', contextOptions) || canvas.getContext('experimental-webgl', contextOptions);
 	
 	            return !!(gl && gl.getContextAttributes().stencil);
-	        }
-	        catch (e)
-	        {
+	        } catch (e) {
 	            return false;
 	        }
 	    },
@@ -1789,8 +1765,7 @@
 	     * @param n {number}
 	     * @returns {number} 0 if n is 0, -1 if n is negative, 1 if n i positive
 	     */
-	    sign: function (n)
-	    {
+	    sign: function(n) {
 	        return n ? (n < 0 ? -1 : 1) : 0;
 	    },
 	
@@ -1801,18 +1776,15 @@
 	     * @param {number} startIdx The index to begin removing from (inclusive)
 	     * @param {number} removeCount How many items to remove
 	     */
-	    removeItems: function (arr, startIdx, removeCount)
-	    {
+	    removeItems: function(arr, startIdx, removeCount) {
 	        var length = arr.length;
 	
-	        if (startIdx >= length || removeCount === 0)
-	        {
+	        if (startIdx >= length || removeCount === 0) {
 	            return;
 	        }
 	
-	        removeCount = (startIdx+removeCount > length ? length-startIdx : removeCount);
-	        for (var i = startIdx, len = length-removeCount; i < len; ++i)
-	        {
+	        removeCount = (startIdx + removeCount > length ? length - startIdx : removeCount);
+	        for (var i = startIdx, len = length - removeCount; i < len; ++i) {
 	            arr[i] = arr[i + removeCount];
 	        }
 	
@@ -9799,10 +9771,10 @@
 	 *      you need to call toDataUrl on the webgl context.
 	 * @param [options.roundPixels=false] {boolean} If true Pixi will Math.floor() x/y values when rendering, stopping pixel interpolation.
 	 */
-	function WebGLRenderer(width, height, options)
-	{
+	function WebGLRenderer(width, height, options) {
 	    options = options || {};
 	
+	    //初始化参数
 	    SystemRenderer.call(this, 'WebGL', width, height, options);
 	
 	    /**
@@ -9940,12 +9912,11 @@
 	 *
 	 * @private
 	 */
-	WebGLRenderer.prototype._createContext = function () {
+	WebGLRenderer.prototype._createContext = function() {
 	    var gl = this.view.getContext('webgl', this._contextOptions) || this.view.getContext('experimental-webgl', this._contextOptions);
 	    this.gl = gl;
 	
-	    if (!gl)
-	    {
+	    if (!gl) {
 	        // fail, not able to get a context
 	        throw new Error('This browser does not support webGL. Try using the canvas renderer');
 	    }
@@ -9960,8 +9931,7 @@
 	 *
 	 * @private
 	 */
-	WebGLRenderer.prototype._initContext = function ()
-	{
+	WebGLRenderer.prototype._initContext = function() {
 	    var gl = this.gl;
 	
 	    // set up the default pixi settings..
@@ -9978,14 +9948,12 @@
 	    // setup the width/height properties and gl viewport
 	    this.resize(this.width, this.height);
 	
-	    if(!this._useFXAA)
-	    {
-	        this._useFXAA = (this._contextOptions.antialias && ! gl.getContextAttributes().antialias);
+	    if (!this._useFXAA) {
+	        this._useFXAA = (this._contextOptions.antialias && !gl.getContextAttributes().antialias);
 	    }
 	
 	
-	    if(this._useFXAA)
-	    {
+	    if (this._useFXAA) {
 	        window.console.warn('FXAA antialiasing being used instead of native antialiasing');
 	        this._FXAAFilter = [new FXAAFilter()];
 	    }
@@ -9996,14 +9964,12 @@
 	 *
 	 * @param object {PIXI.DisplayObject} the object to be rendered
 	 */
-	WebGLRenderer.prototype.render = function (object)
-	{
+	WebGLRenderer.prototype.render = function(object) {
 	
 	    this.emit('prerender');
 	
 	    // no point rendering if our context has been blown up!
-	    if (this.gl.isContextLost())
-	    {
+	    if (this.gl.isContextLost()) {
 	        return;
 	    }
 	
@@ -10011,8 +9977,7 @@
 	
 	    this._lastObjectRendered = object;
 	
-	    if(this._useFXAA)
-	    {
+	    if (this._useFXAA) {
 	        this._FXAAFilter[0].uniforms.resolution.value.x = this.width;
 	        this._FXAAFilter[0].uniforms.resolution.value.y = this.height;
 	        object.filterArea = this.renderTarget.size;
@@ -10032,21 +9997,17 @@
 	    // make sure we are bound to the main frame buffer
 	    this.setRenderTarget(this.renderTarget);
 	
-	    if (this.clearBeforeRender)
-	    {
-	        if (this.transparent)
-	        {
+	    if (this.clearBeforeRender) {
+	        if (this.transparent) {
 	            gl.clearColor(0, 0, 0, 0);
-	        }
-	        else
-	        {
+	        } else {
 	            gl.clearColor(this._backgroundColorRgb[0], this._backgroundColorRgb[1], this._backgroundColorRgb[2], 1);
 	        }
 	
 	        gl.clear(gl.COLOR_BUFFER_BIT);
 	    }
 	
-	    this.renderDisplayObject(object, this.renderTarget);//this.projection);
+	    this.renderDisplayObject(object, this.renderTarget); //this.projection);
 	
 	    this.emit('postrender');
 	};
@@ -10058,36 +10019,33 @@
 	 * @param renderTarget {PIXI.RenderTarget} The render target to use to render this display object
 	 *
 	 */
-	WebGLRenderer.prototype.renderDisplayObject = function (displayObject, renderTarget, clear)//projection, buffer)
-	{
-	    // TODO is this needed...
-	    //this.blendModeManager.setBlendMode(CONST.BLEND_MODES.NORMAL);
-	    this.setRenderTarget(renderTarget);
-	
-	    if(clear)
+	WebGLRenderer.prototype.renderDisplayObject = function(displayObject, renderTarget, clear) //projection, buffer)
 	    {
-	        renderTarget.clear();
-	    }
+	        // TODO is this needed...
+	        //this.blendModeManager.setBlendMode(CONST.BLEND_MODES.NORMAL);
+	        this.setRenderTarget(renderTarget);
 	
-	    // start the filter manager
-	    this.filterManager.setFilterStack( renderTarget.filterStack );
+	        if (clear) {
+	            renderTarget.clear();
+	        }
 	
-	    // render the scene!
-	    displayObject.renderWebGL(this);
+	        // start the filter manager
+	        this.filterManager.setFilterStack(renderTarget.filterStack);
 	
-	    // finish the current renderer..
-	    this.currentRenderer.flush();
-	};
+	        // render the scene!
+	        displayObject.renderWebGL(this);
+	
+	        // finish the current renderer..
+	        this.currentRenderer.flush();
+	    };
 	
 	/**
 	 * Changes the current renderer to the one given in parameter
 	 *
 	 * @param objectRenderer {PIXI.ObjectRenderer} The object renderer to use.
 	 */
-	WebGLRenderer.prototype.setObjectRenderer = function (objectRenderer)
-	{
-	    if (this.currentRenderer === objectRenderer)
-	    {
+	WebGLRenderer.prototype.setObjectRenderer = function(objectRenderer) {
+	    if (this.currentRenderer === objectRenderer) {
 	        return;
 	    }
 	
@@ -10101,16 +10059,14 @@
 	 *
 	 * @param renderTarget {PIXI.RenderTarget} the new render target
 	 */
-	WebGLRenderer.prototype.setRenderTarget = function (renderTarget)
-	{
-	    if( this.currentRenderTarget === renderTarget)
-	    {
+	WebGLRenderer.prototype.setRenderTarget = function(renderTarget) {
+	    if (this.currentRenderTarget === renderTarget) {
 	        return;
 	    }
 	    // TODO - maybe down the line this should be a push pos thing? Leaving for now though.
 	    this.currentRenderTarget = renderTarget;
 	    this.currentRenderTarget.activate();
-	    this.stencilManager.setMaskStack( renderTarget.stencilMaskStack );
+	    this.stencilManager.setMaskStack(renderTarget.stencilMaskStack);
 	};
 	
 	
@@ -10120,15 +10076,13 @@
 	 * @param width {number} the new width of the webGL view
 	 * @param height {number} the new height of the webGL view
 	 */
-	WebGLRenderer.prototype.resize = function (width, height)
-	{
+	WebGLRenderer.prototype.resize = function(width, height) {
 	    SystemRenderer.prototype.resize.call(this, width, height);
 	
 	    this.filterManager.resize(width, height);
 	    this.renderTarget.resize(width, height);
 	
-	    if(this.currentRenderTarget === this.renderTarget)
-	    {
+	    if (this.currentRenderTarget === this.renderTarget) {
 	        this.renderTarget.activate();
 	        this.gl.viewport(0, 0, this.width, this.height);
 	    }
@@ -10139,19 +10093,16 @@
 	 *
 	 * @param texture {PIXI.BaseTexture|PIXI.Texture} the texture to update
 	 */
-	WebGLRenderer.prototype.updateTexture = function (texture)
-	{
+	WebGLRenderer.prototype.updateTexture = function(texture) {
 	    texture = texture.baseTexture || texture;
 	
-	    if (!texture.hasLoaded)
-	    {
+	    if (!texture.hasLoaded) {
 	        return;
 	    }
 	
 	    var gl = this.gl;
 	
-	    if (!texture._glTextures[gl.id])
-	    {
+	    if (!texture._glTextures[gl.id]) {
 	        texture._glTextures[gl.id] = gl.createTexture();
 	        texture.on('update', this.updateTexture, this);
 	        texture.on('dispose', this.destroyTexture, this);
@@ -10167,28 +10118,22 @@
 	    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, texture.scaleMode === CONST.SCALE_MODES.LINEAR ? gl.LINEAR : gl.NEAREST);
 	
 	
-	    if (texture.mipmap && texture.isPowerOfTwo)
-	    {
+	    if (texture.mipmap && texture.isPowerOfTwo) {
 	        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, texture.scaleMode === CONST.SCALE_MODES.LINEAR ? gl.LINEAR_MIPMAP_LINEAR : gl.NEAREST_MIPMAP_NEAREST);
 	        gl.generateMipmap(gl.TEXTURE_2D);
-	    }
-	    else
-	    {
+	    } else {
 	        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, texture.scaleMode === CONST.SCALE_MODES.LINEAR ? gl.LINEAR : gl.NEAREST);
 	    }
 	
-	    if (!texture.isPowerOfTwo)
-	    {
+	    if (!texture.isPowerOfTwo) {
 	        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
 	        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-	    }
-	    else
-	    {
+	    } else {
 	        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
 	        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
 	    }
 	
-	    return  texture._glTextures[gl.id];
+	    return texture._glTextures[gl.id];
 	};
 	
 	/**
@@ -10196,22 +10141,18 @@
 	 *
 	 * @param texture {PIXI.BaseTexture|PIXI.Texture} the texture to destroy
 	 */
-	WebGLRenderer.prototype.destroyTexture = function (texture, _skipRemove)
-	{
+	WebGLRenderer.prototype.destroyTexture = function(texture, _skipRemove) {
 	    texture = texture.baseTexture || texture;
 	
-	    if (!texture.hasLoaded)
-	    {
+	    if (!texture.hasLoaded) {
 	        return;
 	    }
 	
-	    if (texture._glTextures[this.gl.id])
-	    {
+	    if (texture._glTextures[this.gl.id]) {
 	        this.gl.deleteTexture(texture._glTextures[this.gl.id]);
 	        delete texture._glTextures[this.gl.id];
 	
-	        if (!_skipRemove)
-	        {
+	        if (!_skipRemove) {
 	            var i = this._managedTextures.indexOf(texture);
 	            if (i !== -1) {
 	                utils.removeItems(this._managedTextures, i, 1);
@@ -10225,8 +10166,7 @@
 	 *
 	 * @private
 	 */
-	WebGLRenderer.prototype.handleContextLost = function (event)
-	{
+	WebGLRenderer.prototype.handleContextLost = function(event) {
 	    event.preventDefault();
 	};
 	
@@ -10235,16 +10175,13 @@
 	 *
 	 * @private
 	 */
-	WebGLRenderer.prototype.handleContextRestored = function ()
-	{
+	WebGLRenderer.prototype.handleContextRestored = function() {
 	    this._initContext();
 	
 	    // empty all the old gl textures as they are useless now
-	    for (var i = 0; i < this._managedTextures.length; ++i)
-	    {
+	    for (var i = 0; i < this._managedTextures.length; ++i) {
 	        var texture = this._managedTextures[i];
-	        if (texture._glTextures[this.gl.id])
-	        {
+	        if (texture._glTextures[this.gl.id]) {
 	            delete texture._glTextures[this.gl.id];
 	        }
 	    }
@@ -10255,8 +10192,7 @@
 	 *
 	 * @param [removeView=false] {boolean} Removes the Canvas element from the DOM.
 	 */
-	WebGLRenderer.prototype.destroy = function (removeView)
-	{
+	WebGLRenderer.prototype.destroy = function(removeView) {
 	    this.destroyPlugins();
 	
 	    // remove listeners
@@ -10264,8 +10200,7 @@
 	    this.view.removeEventListener('webglcontextrestored', this.handleContextRestored);
 	
 	    // destroy managed textures
-	    for (var i = 0; i < this._managedTextures.length; ++i)
-	    {
+	    for (var i = 0; i < this._managedTextures.length; ++i) {
 	        var texture = this._managedTextures[i];
 	        this.destroyTexture(texture, true);
 	        texture.off('update', this.updateTexture, this);
@@ -10309,44 +10244,41 @@
 	 *
 	 * @private
 	 */
-	WebGLRenderer.prototype._mapGlModes = function ()
-	{
+	WebGLRenderer.prototype._mapGlModes = function() {
 	    var gl = this.gl;
 	
-	    if (!this.blendModes)
-	    {
+	    if (!this.blendModes) {
 	        this.blendModes = {};
 	
-	        this.blendModes[CONST.BLEND_MODES.NORMAL]        = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.ADD]           = [gl.SRC_ALPHA, gl.DST_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.MULTIPLY]      = [gl.DST_COLOR, gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.SCREEN]        = [gl.SRC_ALPHA, gl.ONE];
-	        this.blendModes[CONST.BLEND_MODES.OVERLAY]       = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.DARKEN]        = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.LIGHTEN]       = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.COLOR_DODGE]   = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.COLOR_BURN]    = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.HARD_LIGHT]    = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.SOFT_LIGHT]    = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.DIFFERENCE]    = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.EXCLUSION]     = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.HUE]           = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.SATURATION]    = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.COLOR]         = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
-	        this.blendModes[CONST.BLEND_MODES.LUMINOSITY]    = [gl.ONE,       gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.NORMAL] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.ADD] = [gl.SRC_ALPHA, gl.DST_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.MULTIPLY] = [gl.DST_COLOR, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.SCREEN] = [gl.SRC_ALPHA, gl.ONE];
+	        this.blendModes[CONST.BLEND_MODES.OVERLAY] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.DARKEN] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.LIGHTEN] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.COLOR_DODGE] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.COLOR_BURN] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.HARD_LIGHT] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.SOFT_LIGHT] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.DIFFERENCE] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.EXCLUSION] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.HUE] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.SATURATION] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.COLOR] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
+	        this.blendModes[CONST.BLEND_MODES.LUMINOSITY] = [gl.ONE, gl.ONE_MINUS_SRC_ALPHA];
 	    }
 	
-	    if (!this.drawModes)
-	    {
+	    if (!this.drawModes) {
 	        this.drawModes = {};
 	
-	        this.drawModes[CONST.DRAW_MODES.POINTS]         = gl.POINTS;
-	        this.drawModes[CONST.DRAW_MODES.LINES]          = gl.LINES;
-	        this.drawModes[CONST.DRAW_MODES.LINE_LOOP]      = gl.LINE_LOOP;
-	        this.drawModes[CONST.DRAW_MODES.LINE_STRIP]     = gl.LINE_STRIP;
-	        this.drawModes[CONST.DRAW_MODES.TRIANGLES]      = gl.TRIANGLES;
+	        this.drawModes[CONST.DRAW_MODES.POINTS] = gl.POINTS;
+	        this.drawModes[CONST.DRAW_MODES.LINES] = gl.LINES;
+	        this.drawModes[CONST.DRAW_MODES.LINE_LOOP] = gl.LINE_LOOP;
+	        this.drawModes[CONST.DRAW_MODES.LINE_STRIP] = gl.LINE_STRIP;
+	        this.drawModes[CONST.DRAW_MODES.TRIANGLES] = gl.TRIANGLES;
 	        this.drawModes[CONST.DRAW_MODES.TRIANGLE_STRIP] = gl.TRIANGLE_STRIP;
-	        this.drawModes[CONST.DRAW_MODES.TRIANGLE_FAN]   = gl.TRIANGLE_FAN;
+	        this.drawModes[CONST.DRAW_MODES.TRIANGLE_FAN] = gl.TRIANGLE_FAN;
 	    }
 	};
 
@@ -22831,8 +22763,7 @@
 	 * @param [baseUrl=''] {string} The base url for all resources loaded by this loader.
 	 * @param [concurrency=10] {number} The number of resources to load concurrently.
 	 */
-	function Loader(baseUrl, concurrency)
-	{
+	function Loader(baseUrl, concurrency) {
 	    ResourceLoader.call(this, baseUrl, concurrency);
 	
 	    for (var i = 0; i < Loader._pixiMiddleware.length; ++i) {
@@ -22856,7 +22787,7 @@
 	    bitmapFontParser
 	];
 	
-	Loader.addPixiMiddleware = function (fn) {
+	Loader.addPixiMiddleware = function(fn) {
 	    Loader._pixiMiddleware.push(fn);
 	};
 	
@@ -26129,7 +26060,7 @@
 	 *
 	 * @fires complete
 	 */
-	Resource.prototype.complete = function () {
+	Resource.prototype.complete = function() {
 	    // TODO: Clean this up in a wrapper or something...gross....
 	    if (this.data && this.data.removeEventListener) {
 	        this.data.removeEventListener('error', this._boundOnError);
@@ -26144,8 +26075,7 @@
 	            this.xhr.removeEventListener('abort', this._boundXhrOnAbort);
 	            this.xhr.removeEventListener('progress', this._boundOnProgress);
 	            this.xhr.removeEventListener('load', this._boundXhrOnLoad);
-	        }
-	        else {
+	        } else {
 	            this.xhr.onerror = null;
 	            this.xhr.ontimeout = null;
 	            this.xhr.onprogress = null;
@@ -26162,7 +26092,7 @@
 	 * @fires start
 	 * @param [callback] {function} Optional callback to call once the resource is loaded.
 	 */
-	Resource.prototype.load = function (cb) {
+	Resource.prototype.load = function(cb) {
 	    this.emit('start', this);
 	
 	    // if a callback is set, listen for complete event
@@ -26174,8 +26104,8 @@
 	    if (this.crossOrigin === false || typeof this.crossOrigin !== 'string') {
 	        this.crossOrigin = this._determineCrossOrigin(this.url);
 	    }
-	
-	    switch(this.loadType) {
+	console.log(this.loadType)
+	    switch (this.loadType) {
 	        case Resource.LOAD_TYPE.IMAGE:
 	            this._loadImage();
 	            break;
@@ -26193,8 +26123,7 @@
 	        default:
 	            if (useXdr && this.crossOrigin) {
 	                this._loadXdr();
-	            }
-	            else {
+	            } else {
 	                this._loadXhr();
 	            }
 	            break;
@@ -26206,7 +26135,7 @@
 	 *
 	 * @private
 	 */
-	Resource.prototype._loadImage = function () {
+	Resource.prototype._loadImage = function() {
 	    this.data = new Image();
 	
 	    if (this.crossOrigin) {
@@ -26227,11 +26156,10 @@
 	 *
 	 * @private
 	 */
-	Resource.prototype._loadElement = function (type) {
+	Resource.prototype._loadElement = function(type) {
 	    if (type === 'audio' && typeof Audio !== 'undefined') {
 	        this.data = new Audio();
-	    }
-	    else {
+	    } else {
 	        this.data = document.createElement(type);
 	    }
 	
@@ -26244,14 +26172,12 @@
 	    // support for CocoonJS Canvas+ runtime, lacks document.createElement('source')
 	    if (navigator.isCocoonJS) {
 	        this.data.src = Array.isArray(this.url) ? this.url[0] : this.url;
-	    }
-	    else {
+	    } else {
 	        if (Array.isArray(this.url)) {
 	            for (var i = 0; i < this.url.length; ++i) {
 	                this.data.appendChild(this._createSource(type, this.url[i]));
 	            }
-	        }
-	        else {
+	        } else {
 	            this.data.appendChild(this._createSource(type, this.url));
 	        }
 	    }
@@ -26271,7 +26197,7 @@
 	 *
 	 * @private
 	 */
-	Resource.prototype._loadXhr = function () {
+	Resource.prototype._loadXhr = function() {
 	    // if unset, determine the value
 	    if (typeof this.xhrType !== 'string') {
 	        this.xhrType = this._determineXhrType();
@@ -26286,8 +26212,7 @@
 	    // *cough* safari *cough* can't deal with it.
 	    if (this.xhrType === Resource.XHR_RESPONSE_TYPE.JSON || this.xhrType === Resource.XHR_RESPONSE_TYPE.DOCUMENT) {
 	        xhr.responseType = Resource.XHR_RESPONSE_TYPE.TEXT;
-	    }
-	    else {
+	    } else {
 	        xhr.responseType = this.xhrType;
 	    }
 	
@@ -26304,7 +26229,7 @@
 	 *
 	 * @private
 	 */
-	Resource.prototype._loadXdr = function () {
+	Resource.prototype._loadXdr = function() {
 	    // if unset, determine the value
 	    if (typeof this.xhrType !== 'string') {
 	        this.xhrType = this._determineXhrType();
@@ -26327,7 +26252,7 @@
 	    //  Note: The xdr.send() call is wrapped in a timeout to prevent an issue with the interface where some requests are lost
 	    //  if multiple XDomainRequests are being sent at the same time.
 	    // Some info here: https://github.com/photonstorm/phaser/issues/1248
-	    setTimeout(function () {
+	    setTimeout(function() {
 	        xdr.send();
 	    }, 0);
 	};
@@ -26340,7 +26265,7 @@
 	 * @param [mime] {string} The mime type of the video
 	 * @private
 	 */
-	Resource.prototype._createSource = function (type, url, mime) {
+	Resource.prototype._createSource = function(type, url, mime) {
 	    if (!mime) {
 	        mime = type + '/' + url.substr(url.lastIndexOf('.') + 1);
 	    }
@@ -26359,7 +26284,7 @@
 	 * @param event {Event} The error event from the element that emits it.
 	 * @private
 	 */
-	Resource.prototype._onError = function (event) {
+	Resource.prototype._onError = function(event) {
 	    this.error = new Error('Failed to load element using ' + event.target.nodeName);
 	    this.complete();
 	};
@@ -26371,7 +26296,7 @@
 	 * @param event {XMLHttpRequestProgressEvent|Event}
 	 * @private
 	 */
-	Resource.prototype._onProgress =  function (event) {
+	Resource.prototype._onProgress = function(event) {
 	    if (event && event.lengthComputable) {
 	        this.emit('progress', this, event.loaded / event.total);
 	    }
@@ -26383,7 +26308,7 @@
 	 * @param event {XMLHttpRequestErrorEvent|Event}
 	 * @private
 	 */
-	Resource.prototype._xhrOnError = function () {
+	Resource.prototype._xhrOnError = function() {
 	    this.error = new Error(
 	        reqType(this.xhr) + ' Request failed. ' +
 	        'Status: ' + this.xhr.status + ', text: "' + this.xhr.statusText + '"'
@@ -26398,7 +26323,7 @@
 	 * @param event {XMLHttpRequestAbortEvent}
 	 * @private
 	 */
-	Resource.prototype._xhrOnAbort = function () {
+	Resource.prototype._xhrOnAbort = function() {
 	    this.error = new Error(reqType(this.xhr) + ' Request was aborted by the user.');
 	    this.complete();
 	};
@@ -26409,7 +26334,7 @@
 	 * @param event {Event}
 	 * @private
 	 */
-	Resource.prototype._xdrOnTimeout = function () {
+	Resource.prototype._xdrOnTimeout = function() {
 	    this.error = new Error(reqType(this.xhr) + ' Request timed out.');
 	    this.complete();
 	};
@@ -26420,7 +26345,7 @@
 	 * @param event {XMLHttpRequestLoadEvent|Event}
 	 * @private
 	 */
-	Resource.prototype._xhrOnLoad = function () {
+	Resource.prototype._xhrOnLoad = function() {
 	    var xhr = this.xhr,
 	        status = xhr.status !== undefined ? xhr.status : 200; //XDR has no `.status`, assume 200.
 	
@@ -26435,7 +26360,7 @@
 	            try {
 	                this.data = JSON.parse(xhr.responseText);
 	                this.isJson = true;
-	            } catch(e) {
+	            } catch (e) {
 	                this.error = new Error('Error trying to parse loaded json:', e);
 	            }
 	        }
@@ -26445,8 +26370,7 @@
 	                if (window.DOMParser) {
 	                    var domparser = new DOMParser();
 	                    this.data = domparser.parseFromString(xhr.responseText, 'text/xml');
-	                }
-	                else {
+	                } else {
 	                    var div = document.createElement('div');
 	                    div.innerHTML = xhr.responseText;
 	                    this.data = div;
@@ -26460,8 +26384,7 @@
 	        else {
 	            this.data = xhr.response || xhr.responseText;
 	        }
-	    }
-	    else {
+	    } else {
 	        this.error = new Error('[' + xhr.status + ']' + xhr.statusText + ':' + xhr.responseURL);
 	    }
 	
@@ -26482,7 +26405,7 @@
 	 * @param [location=window.location] {object} The location object to test against.
 	 * @return {string} The crossOrigin value to use (or empty string for none).
 	 */
-	Resource.prototype._determineCrossOrigin = function (url, loc) {
+	Resource.prototype._determineCrossOrigin = function(url, loc) {
 	    // data: and javascript: urls are considered same-origin
 	    if (url.indexOf('data:') === 0) {
 	        return '';
@@ -26518,23 +26441,22 @@
 	 * @private
 	 * @return {Resource.XHR_RESPONSE_TYPE} The responseType to use.
 	 */
-	Resource.prototype._determineXhrType = function () {
+	Resource.prototype._determineXhrType = function() {
 	    return Resource._xhrTypeMap[this._getExtension()] || Resource.XHR_RESPONSE_TYPE.TEXT;
 	};
 	
-	Resource.prototype._determineLoadType = function () {
+	Resource.prototype._determineLoadType = function() {
 	    return Resource._loadTypeMap[this._getExtension()] || Resource.LOAD_TYPE.XHR;
 	};
 	
-	Resource.prototype._getExtension = function () {
+	Resource.prototype._getExtension = function() {
 	    var url = this.url,
 	        ext;
 	
 	    if (this.isDataUrl) {
 	        var slashIndex = url.indexOf('/');
 	        ext = url.substring(slashIndex + 1, url.indexOf(';', slashIndex));
-	    }
-	    else {
+	    } else {
 	        var queryStart = url.indexOf('?');
 	        if (queryStart !== -1) {
 	            url = url.substring(0, queryStart);
@@ -26553,8 +26475,8 @@
 	 * @private
 	 * @return {string} The mime type to use.
 	 */
-	Resource.prototype._getMimeFromXhrType = function (type) {
-	    switch(type) {
+	Resource.prototype._getMimeFromXhrType = function(type) {
+	    switch (type) {
 	        case Resource.XHR_RESPONSE_TYPE.BUFFER:
 	            return 'application/octet-binary';
 	
@@ -26588,10 +26510,10 @@
 	 * @property {number} LOAD_TYPE.VIDEO - Uses a `Video` object to load the resource.
 	 */
 	Resource.LOAD_TYPE = {
-	    XHR:    1,
-	    IMAGE:  2,
-	    AUDIO:  3,
-	    VIDEO:  4
+	    XHR: 1,
+	    IMAGE: 2,
+	    AUDIO: 3,
+	    VIDEO: 4
 	};
 	
 	/**
@@ -26628,53 +26550,53 @@
 	 * @property {string} XHR_RESPONSE_TYPE.TEXT - String
 	 */
 	Resource.XHR_RESPONSE_TYPE = {
-	    DEFAULT:    'text',
-	    BUFFER:     'arraybuffer',
-	    BLOB:       'blob',
-	    DOCUMENT:   'document',
-	    JSON:       'json',
-	    TEXT:       'text'
+	    DEFAULT: 'text',
+	    BUFFER: 'arraybuffer',
+	    BLOB: 'blob',
+	    DOCUMENT: 'document',
+	    JSON: 'json',
+	    TEXT: 'text'
 	};
 	
 	Resource._loadTypeMap = {
-	    'gif':      Resource.LOAD_TYPE.IMAGE,
-	    'png':      Resource.LOAD_TYPE.IMAGE,
-	    'bmp':      Resource.LOAD_TYPE.IMAGE,
-	    'jpg':      Resource.LOAD_TYPE.IMAGE,
-	    'jpeg':     Resource.LOAD_TYPE.IMAGE,
-	    'tif':      Resource.LOAD_TYPE.IMAGE,
-	    'tiff':     Resource.LOAD_TYPE.IMAGE,
-	    'webp':     Resource.LOAD_TYPE.IMAGE,
-	    'tga':      Resource.LOAD_TYPE.IMAGE
+	    'gif': Resource.LOAD_TYPE.IMAGE,
+	    'png': Resource.LOAD_TYPE.IMAGE,
+	    'bmp': Resource.LOAD_TYPE.IMAGE,
+	    'jpg': Resource.LOAD_TYPE.IMAGE,
+	    'jpeg': Resource.LOAD_TYPE.IMAGE,
+	    'tif': Resource.LOAD_TYPE.IMAGE,
+	    'tiff': Resource.LOAD_TYPE.IMAGE,
+	    'webp': Resource.LOAD_TYPE.IMAGE,
+	    'tga': Resource.LOAD_TYPE.IMAGE
 	};
 	
 	Resource._xhrTypeMap = {
 	    // xml
-	    'xhtml':    Resource.XHR_RESPONSE_TYPE.DOCUMENT,
-	    'html':     Resource.XHR_RESPONSE_TYPE.DOCUMENT,
-	    'htm':      Resource.XHR_RESPONSE_TYPE.DOCUMENT,
-	    'xml':      Resource.XHR_RESPONSE_TYPE.DOCUMENT,
-	    'tmx':      Resource.XHR_RESPONSE_TYPE.DOCUMENT,
-	    'tsx':      Resource.XHR_RESPONSE_TYPE.DOCUMENT,
-	    'svg':      Resource.XHR_RESPONSE_TYPE.DOCUMENT,
+	    'xhtml': Resource.XHR_RESPONSE_TYPE.DOCUMENT,
+	    'html': Resource.XHR_RESPONSE_TYPE.DOCUMENT,
+	    'htm': Resource.XHR_RESPONSE_TYPE.DOCUMENT,
+	    'xml': Resource.XHR_RESPONSE_TYPE.DOCUMENT,
+	    'tmx': Resource.XHR_RESPONSE_TYPE.DOCUMENT,
+	    'tsx': Resource.XHR_RESPONSE_TYPE.DOCUMENT,
+	    'svg': Resource.XHR_RESPONSE_TYPE.DOCUMENT,
 	
 	    // images
-	    'gif':      Resource.XHR_RESPONSE_TYPE.BLOB,
-	    'png':      Resource.XHR_RESPONSE_TYPE.BLOB,
-	    'bmp':      Resource.XHR_RESPONSE_TYPE.BLOB,
-	    'jpg':      Resource.XHR_RESPONSE_TYPE.BLOB,
-	    'jpeg':     Resource.XHR_RESPONSE_TYPE.BLOB,
-	    'tif':      Resource.XHR_RESPONSE_TYPE.BLOB,
-	    'tiff':     Resource.XHR_RESPONSE_TYPE.BLOB,
-	    'webp':     Resource.XHR_RESPONSE_TYPE.BLOB,
-	    'tga':      Resource.XHR_RESPONSE_TYPE.BLOB,
+	    'gif': Resource.XHR_RESPONSE_TYPE.BLOB,
+	    'png': Resource.XHR_RESPONSE_TYPE.BLOB,
+	    'bmp': Resource.XHR_RESPONSE_TYPE.BLOB,
+	    'jpg': Resource.XHR_RESPONSE_TYPE.BLOB,
+	    'jpeg': Resource.XHR_RESPONSE_TYPE.BLOB,
+	    'tif': Resource.XHR_RESPONSE_TYPE.BLOB,
+	    'tiff': Resource.XHR_RESPONSE_TYPE.BLOB,
+	    'webp': Resource.XHR_RESPONSE_TYPE.BLOB,
+	    'tga': Resource.XHR_RESPONSE_TYPE.BLOB,
 	
 	    // json
-	    'json':     Resource.XHR_RESPONSE_TYPE.JSON,
+	    'json': Resource.XHR_RESPONSE_TYPE.JSON,
 	
 	    // text
-	    'text':     Resource.XHR_RESPONSE_TYPE.TEXT,
-	    'txt':      Resource.XHR_RESPONSE_TYPE.TEXT
+	    'text': Resource.XHR_RESPONSE_TYPE.TEXT,
+	    'txt': Resource.XHR_RESPONSE_TYPE.TEXT
 	};
 	
 	/**
@@ -26684,7 +26606,7 @@
 	 * @param extname {string} The extension to set the type for, e.g. "png" or "fnt"
 	 * @param loadType {Resource.LOAD_TYPE} The load type to set it to.
 	 */
-	Resource.setExtensionLoadType = function (extname, loadType) {
+	Resource.setExtensionLoadType = function(extname, loadType) {
 	    setExtMap(Resource._loadTypeMap, extname, loadType);
 	};
 	
@@ -26695,7 +26617,7 @@
 	 * @param extname {string} The extension to set the type for, e.g. "png" or "fnt"
 	 * @param xhrType {Resource.XHR_RESPONSE_TYPE} The xhr type to set it to.
 	 */
-	Resource.setExtensionXhrType = function (extname, xhrType) {
+	Resource.setExtensionXhrType = function(extname, xhrType) {
 	    setExtMap(Resource._xhrTypeMap, extname, xhrType);
 	};
 	

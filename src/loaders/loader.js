@@ -25,8 +25,7 @@ var ResourceLoader = require('resource-loader'),
  * @param [baseUrl=''] {string} The base url for all resources loaded by this loader.
  * @param [concurrency=10] {number} The number of resources to load concurrently.
  */
-function Loader(baseUrl, concurrency)
-{
+function Loader(baseUrl, concurrency) {
     ResourceLoader.call(this, baseUrl, concurrency);
 
     for (var i = 0; i < Loader._pixiMiddleware.length; ++i) {
@@ -50,7 +49,7 @@ Loader._pixiMiddleware = [
     bitmapFontParser
 ];
 
-Loader.addPixiMiddleware = function (fn) {
+Loader.addPixiMiddleware = function(fn) {
     Loader._pixiMiddleware.push(fn);
 };
 

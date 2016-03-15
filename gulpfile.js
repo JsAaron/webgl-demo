@@ -18,14 +18,14 @@ function handleErrors() {
 
 
 var srcRoot = "./src/";
-var destRoot = "./demo/"
+var destRoot = "./test/"
 
 //监控原src变化
 var watchJs = srcRoot + '**/*.js';
 //配置server 
 var webServer = {
     server    : destRoot,
-    index     : 'index.html',
+    // index     : 'index.html',
     port      : 3000,
     logLevel  : "debug",
     logPrefix : "Aaron",
@@ -62,8 +62,8 @@ gulp.task('pack', function() {
         // watch  : true,
         entry: './src/index.js',
         output: {
-            path: './demo/',
-            publicPath: './demo/',
+            path: destRoot,
+            publicPath: destRoot,
             filename: 'pixi.js'
         },
         devtool: '#source-map',

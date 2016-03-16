@@ -373,6 +373,7 @@ BaseTexture.prototype.updateSourceImage = function (newSrc)
  * @param [scaleMode=PIXI.SCALE_MODES.DEFAULT] {number} See {@link PIXI.SCALE_MODES} for possible values
  * @return PIXI.BaseTexture
  */
+
 BaseTexture.fromImage = function (imageUrl, crossorigin, scaleMode)
 {
     var baseTexture = utils.BaseTextureCache[imageUrl];

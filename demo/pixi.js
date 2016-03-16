@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "./test/";
+/******/ 	__webpack_require__.p = "./demo/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -5448,6 +5448,7 @@
 	 * @param [scaleMode=PIXI.SCALE_MODES.DEFAULT] {number} See {@link PIXI.SCALE_MODES} for possible values
 	 * @return PIXI.BaseTexture
 	 */
+	
 	BaseTexture.fromImage = function (imageUrl, crossorigin, scaleMode)
 	{
 	    var baseTexture = utils.BaseTextureCache[imageUrl];

@@ -5,10 +5,11 @@ document.body.appendChild(renderer.view);
 var stage = new PIXI.Container();
 
 // create a new Sprite from an image path.
-var bunny = PIXI.Sprite.fromImage('_assets/bunny.png');
+var bunny = PIXI.Sprite.fromImage('./bunny.png');
 
 // center the sprite's anchor point
 bunny.anchor.set(0.5);
+
 
 // move the sprite to the center of the screen
 bunny.position.x = 200;
